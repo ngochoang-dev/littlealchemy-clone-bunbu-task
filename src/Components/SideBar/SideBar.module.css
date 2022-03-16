@@ -1,0 +1,53 @@
+
+.container {
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 250px;
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+    display: flex;
+}
+
+.wrapper_alphabet {
+    width: 30px;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: auto;
+    border-right: 1px solid #fff;
+    height: 100%
+}
+
+.wrapper_alphabet::-webkit-scrollbar {
+    display: none;
+}
+
+.list_alphabet {
+    width: 100%;
+}
+
+.list_alphabet>li {
+    padding: 4px 0;
+    height: 26px;
+    box-sizing: content-box;
+    cursor: pointer;
+    font-weight: thin;
+    opacity: .8;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    padding: 5px 0;
+    box-sizing: content-box;
+}
+
+.item>img {
+    width: 50px;
+    height: 50px;
+    padding: 0 3px;
+    cursor: pointer;
+}
