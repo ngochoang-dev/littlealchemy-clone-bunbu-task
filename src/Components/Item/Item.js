@@ -30,6 +30,7 @@ function Item({
             data-item={itemIndex}
         >
             <img
+                className='images'
                 src={`./images/${photo}`}
                 alt={name}
                 draggable={false}

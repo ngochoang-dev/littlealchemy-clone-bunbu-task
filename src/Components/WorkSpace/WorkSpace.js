@@ -25,16 +25,11 @@ function WorkSpace({ items, setItemWorkSpace }) {
 
         const handleMousemove = (e) => {
             setItemCoordinates(e.pageX, e.pageY);
-            const elementCloneSpaceLeft =
-                element.getBoundingClientRect().top +
-                e.target.clientHeight;
 
-            console.log(element.getBoundingClientRect().top);
-
-            console.log(elementCloneSpaceLeft);
-            // 
+            // handle when element matches
 
         }
+
         document.addEventListener('mousemove', handleMousemove);
 
         element.onmouseup = () => {
@@ -52,6 +47,12 @@ function WorkSpace({ items, setItemWorkSpace }) {
             document.removeEventListener('mousemove', handleMousemove);
             element.onmouseup = null;
         }
+
+        document.onmouseup = () => {
+            document.removeEventListener('mousemove', handleMousemove);
+            document.onmouseup = null
+        }
+
     }
 
     useEffect(() => {

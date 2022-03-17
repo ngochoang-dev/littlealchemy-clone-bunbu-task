@@ -66,13 +66,14 @@ function SideBar({ resources, setItemWorkSpace }) {
                 ]
             })
 
-            workspaceElement.removeChild(elementClone);
             elementClone.onmouseup = null;
         }
 
-        e.target.onmouseup = () => {
-            if (elementClone)
-                workspaceElement.removeChild(elementClone);
+
+        document.onmouseup = () => {
+            const inViewWorkSpace = elementClone.closest('.container_workspace');
+            inViewWorkSpace && workspaceElement.removeChild(elementClone);
+            document.onmouseup = null
         }
     }
 
