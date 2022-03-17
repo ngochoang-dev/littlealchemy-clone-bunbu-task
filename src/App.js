@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 import WorkSpace from './Components/WorkSpace/WorkSpace';
 import SideBar from './Components/SideBar/SideBar';
@@ -62,12 +63,19 @@ const resources = [
 ]
 
 function App() {
+  const [itemWorkSpace, setItemWorkSpace] = useState([]);
+
 
   return (
     <div className="App">
-      <WorkSpace />
+      <WorkSpace
+        items={itemWorkSpace}
+        setItemWorkSpace={setItemWorkSpace}
+      />
       <SideBar
         resources={resources}
+        itemWorkSpace={itemWorkSpace}
+        setItemWorkSpace={setItemWorkSpace}
       />
     </div>
   );

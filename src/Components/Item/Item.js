@@ -1,13 +1,41 @@
-import React from 'react';
+import React, { forwardRef, useRef, useImperativeHandle, useEffect } from 'react';
 import clsx from 'clsx';
-import styles from '../SideBar/SideBar.module.css';
+import styles from './Item.module.css';
 
-function Item({ photo, name, underline, }) {
+function Item({
+    index,
+    itemIndex,
+    photo,
+    name,
+    workspace,
+    underline,
+    onMouseDown,
+    style,
+}, ref) {
+    const itemRef = useRef();
+
+    useImperativeHandle(ref, () => itemRef.current);
+
+    useEffect(() => {
+        style && (itemRef.current.style = style)
+    }, [style])
+
     return (
-        <div className={clsx(
-            styles.item
-        )}>
-            <img src={`./images/${photo}`} alt='Download' />
+        <div
+            className={clsx(
+                styles.item,
+                workspace && styles.workspace
+            )}
+            ref={itemRef}
+            data-item={itemIndex}
+        >
+            <img
+                src={`./images/${photo}`}
+                alt={name}
+                draggable={false}
+                onMouseDown={onMouseDown}
+                data-index={index}
+            />
             <span style={
                 underline ? { textDecoration: 'underline' } : {}
             }>{name}</span>
@@ -15,4 +43,4 @@ function Item({ photo, name, underline, }) {
     )
 }
 
-export default Item
+export default forwardRef(Item)
