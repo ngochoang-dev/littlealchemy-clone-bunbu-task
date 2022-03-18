@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react';
-import clsx from 'clsx';
+import { useRef, useEffect } from 'react';
 import styles from './SideBar.module.css';
 import Item from '../Item/Item';
 import AlphaBet from './AlphaBet';
@@ -113,7 +112,6 @@ function SideBar({
                 setItem()
                 elementRef.current.style.opacity = '1'
             }
-
             if (isCombineRef.current.combine) {
                 handleCombine()
                 elementRef.current.style.opacity = '1'
@@ -156,6 +154,8 @@ function SideBar({
                     return isCombineRef.current.combine = false
                 }
 
+                console.log(`${style} opacity: 1;`,);
+
                 setItemWorkSpace((prev => {
                     const lastElement = prev[prev.length - 1];
                     const newItem = prev.filter(item => {
@@ -164,12 +164,12 @@ function SideBar({
                     })
                     return [...newItem, {
                         ...itemCombine,
-                        style: style,
+                        style: `${style} opacity: 1;`,
                         index: Number(lastElement.index) + 1
                     }];
                 }))
                 setItemSideBar(prev => {
-                    return [...new Set([...prev, itemCombine])]
+                    return [...new Set([...prev, itemCombine])];
                 })
                 isCombineRef.current = {
                     combine: false,
@@ -186,15 +186,11 @@ function SideBar({
     }, [])
 
     return (
-        <div className={clsx(
-            styles.container
-        )}
+        <div className={styles.container}
             style={{ backgroundImage: `url('./images/library-background.png')` }}
         >
             <AlphaBet />
-            <div className={clsx(
-                styles.resource
-            )}>
+            <div className={styles.resource}>
                 {
                     itemSideBar.map((item, i) => {
                         return <Item

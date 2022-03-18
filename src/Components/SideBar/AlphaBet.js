@@ -1,12 +1,8 @@
-import React from 'react';
-import clsx from 'clsx';
 import styles from './SideBar.module.css';
 
 function AlphaBet() {
     return (
-        <div className={clsx(
-            styles.wrapper_alphabet
-        )}>
+        <div className={styles.wrapper_alphabet}>
             <ul className={
                 styles.list_alphabet
             }>

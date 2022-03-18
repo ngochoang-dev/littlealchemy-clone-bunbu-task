@@ -36,3 +36,42 @@ li {
   height: 100vh;
   overflow: hidden;
 }
+
+.wrapper_option {
+  position: absolute;
+  bottom: 10px;
+  right: 260px;
+  width: 35px;
+}
+
+.list_option>li div {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 35px;
+    height: 35px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.list_option>li div:active {
+  opacity: .7;
+}
+
+.login {
+  position: absolute;
+  right: 60px;
+  bottom: 2px;
+  cursor: pointer;
+  width: 50px;
+}
+
+.btn_change_screen {
+  position: fixed;
+  width: 29px;
+  height: 29px;
+  cursor: pointer;
+  top: 10px;
+  left: 10px;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

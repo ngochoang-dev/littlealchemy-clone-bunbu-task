@@ -1,5 +1,9 @@
-import React, { forwardRef, useRef, useImperativeHandle, useEffect } from 'react';
-import clsx from 'clsx';
+import {
+    forwardRef,
+    useRef,
+    useImperativeHandle,
+    useEffect
+} from 'react';
 import styles from './Item.module.css';
 
 function Item({
@@ -23,11 +27,11 @@ function Item({
 
     return (
         <div
-            className={clsx(
-                styles.item,
-                'item',
-                workspace && styles.workspace
-            )}
+            className={`
+                ${styles.item}
+                item
+                ${workspace && styles.workspace}
+            `}
             ref={itemRef}
             data-item={itemIndex}
             data-keyitem={keyitem}

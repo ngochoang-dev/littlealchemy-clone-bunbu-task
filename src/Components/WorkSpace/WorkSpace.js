@@ -1,5 +1,4 @@
-import React, { useRef, useEffect } from 'react';
-import clsx from 'clsx';
+import { useRef, useEffect } from 'react';
 import styles from './WorkSpace.module.css';
 import Item from '../Item/Item';
 
@@ -131,12 +130,12 @@ function WorkSpace({ resources,
                     })
                     return [...newItem, {
                         ...itemCombine,
-                        style: style,
+                        style: `${style} opacity: 1;`,
                         index: Number(lastElement.index) + 1
                     }];
                 }))
                 setItemSideBar(prev => {
-                    return [...new Set([...prev, itemCombine])]
+                    return [...new Set([...prev, itemCombine])];
                 })
                 isCombineRef.current = {
                     combine: false,
@@ -152,10 +151,7 @@ function WorkSpace({ resources,
     }, [items]);
 
     return (
-        <div className={clsx(
-            styles.container,
-            'container_workspace'
-        )}
+        <div className={` ${styles.container} container_workspace`}
             style={{
                 backgroundImage: `url('./images/workspace-background.png')`
             }}

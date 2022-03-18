@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import './App.css';
-import WorkSpace from './Components/WorkSpace/WorkSpace';
+import Option from './Components/Option/Option';
 import SideBar from './Components/SideBar/SideBar';
+import WorkSpace from './Components/WorkSpace/WorkSpace';
 
 const resources = [
   {
@@ -92,6 +93,9 @@ function App() {
         itemWorkSpace={itemWorkSpace}
         setItemWorkSpace={setItemWorkSpace}
         setItemSideBar={setItemSideBar}
+      />
+      <Option
+        setItemWorkSpace={setItemWorkSpace}
       />
     </div>
   );
