@@ -5,12 +5,13 @@ import styles from './Item.module.css';
 function Item({
     index,
     itemIndex,
+    keyitem,
     photo,
     name,
+    style,
     workspace,
     underline,
     onMouseDown,
-    style,
 }, ref) {
     const itemRef = useRef();
 
@@ -24,10 +25,12 @@ function Item({
         <div
             className={clsx(
                 styles.item,
+                'item',
                 workspace && styles.workspace
             )}
             ref={itemRef}
             data-item={itemIndex}
+            data-keyitem={keyitem}
         >
             <img
                 className='images'
@@ -44,4 +47,4 @@ function Item({
     )
 }
 
-export default forwardRef(Item)
+export default forwardRef(Item);

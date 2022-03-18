@@ -41,4 +41,4 @@ function AlphaBet() {
     )
 }
 
-export default AlphaBet
+export default AlphaBet;
